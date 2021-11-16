@@ -1,0 +1,74 @@
+<html>
+
+<style>
+
+#city {
+  font-size: 40px;
+  font-color:black;
+}
+
+#country {
+  font-size: 40px;
+  font-color:black;
+}
+
+#province {
+  font-size: 40px;
+  font-color:black;
+}
+
+</style>
+Type the city name:
+<br>
+<input type="text" id="citybox">
+<br>
+Type the country name:
+<br>
+<input type="text" id="countrybox">
+<br>
+Type the province name:
+<br>
+<input type="text" id="provincebox">
+<br>
+Type the picture url name:
+<br>
+<input type="text" id="url">
+<br>
+<input type="button" onclick="submit()" value="Submit">
+
+<p id="city"></p>
+<p id="country"></p>
+<p id="province"></p>
+<img id="img">
+<script>
+	
+	var city = document.getElementById("city");
+	var country = document.getElementById("country");
+	var province = document.getElementById("province");
+	
+	var cityBox = document.getElementById("citybox");
+	var countryBox = document.getElementById("countrybox");
+	var provinceBox = document.getElementById("provincebox");
+	var url = document.getElementById("url");
+	var img = document.getElementById("img");
+	
+	function submit(){
+		
+		city.innerHTML=cityBox.value;
+		country.innerHTML=countryBox.value;
+		province.innerHTML=provinceBox.value;
+		img.src=url.value;
+	}
+	
+	
+	
+
+</script>
+
+
+</html>
+
+
+
+
+
