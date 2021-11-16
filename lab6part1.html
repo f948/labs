@@ -1,0 +1,49 @@
+<html>
+
+
+
+
+	  
+	  
+<body>
+Type the background (hex,rgb) or an image with the file name or url:
+<br>
+<input type="text" id="background">
+<br>
+
+
+<input type="button" onclick="submit()" value="Submit">
+
+
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io();
+	var background = document.getElementById("background");
+	
+
+	
+	socket.emit("sendDate",new Date());
+	
+	function submit(){
+		
+	
+		document.body.style.backgroundImage='url('+background.value+')';
+		document.body.style.backgroundColor=background.value;
+		document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+		
+	}
+	
+	socket.on("getLastDate",function(message){
+		
+		alert(message);
+	});
+	
+
+</script>
+
+
+</html>
+
