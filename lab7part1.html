@@ -1,0 +1,100 @@
+<html>
+<canvas width="500" height="500" id="canvas"></canvas>
+
+<input type="button" onclick="addEyes()" value="Add Eyes">
+<input type="button" onclick="addNose()" value="Add Nose">
+<input type="button" onclick="addMouth()" value="Add Mouth">
+<input type="button" onclick="addHat()" value="Add Hat">
+<input type="button" onclick="restart()" value="Restart">
+<button id="downloadPNG">DownloadPNG</button>
+
+<script>
+
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+var downloadPNG = document.getElementById("downloadPNG");
+
+context.fillStyle="brown";
+
+context.beginPath();
+context.arc(250,250,250,0,2*Math.PI);
+context.fill();
+	
+	
+	downloadPNG.addEventListener("click", function(){
+				var image = canvas.toDataURL();
+				
+				var tmpLink = document.createElement('a');
+				
+				name = prompt("What do you want to name this file?");
+				filename = name.concat(".png");
+				
+				tmpLink.download =filename;
+				tmpLink.href = image;
+				
+				document.body.appendChild(tmpLink);
+				tmpLink.click();
+				document.body.removeChild(tmpLink);
+				
+				});
+				
+	function addEyes(){
+	
+		context.fillStyle="white";
+		context.beginPath();
+
+		context.arc(200,125,50,0,2*Math.PI);
+		context.fill();
+		
+		context.arc(300,125,50,0,2*Math.PI);
+		context.fill();
+		
+		context.fillStyle="black";
+		context.beginPath();
+
+		context.arc(200,125,25,0,2*Math.PI);
+		context.fill();
+		
+		context.arc(300,125,25,0,2*Math.PI);
+		context.fill();
+	}
+	
+	function addNose(){
+	
+		context.fillStyle="black";
+		context.beginPath();
+
+		context.arc(250,250,25,0,2*Math.PI);
+		context.fill();
+		
+	
+	}
+	
+	function addMouth(){
+	
+		context.fillStyle="red";
+		context.beginPath();
+
+		context.arc(250,300,50,0,Math.PI);
+		context.fill();
+	}
+	
+	function addHat(){
+	
+		context.fillStyle="green";
+		context.beginPath();
+
+		context.arc(250,50,50,Math.PI,0);
+		context.fill();
+		
+	}
+	
+	function restart(){
+		
+		location.reload();
+	}
+	
+	
+</script>
+</html>
